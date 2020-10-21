@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zohar's meme generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="onInit()">
+
+    <nav class="nav-container container">
+        <img class="logo" src="icon/LOGO.png">
+        <ul class="nav">
+            <li class="nav-gallery">Gallery</li>
+            <li class="nav-memes">Memes</li>
+            <li class="nav-about">About</li>
+        </ul>
+    </nav>
+    <div class="search-container container">
+        <div class="search-by-typing">
+            <input type="text" list="meme-theme" placeholder="SEARCH" onkeyup="onFilterImgs(value)">
+            <img src="icon/search.png" />
+            <datalist id="meme-theme">
+                <option value="Funny">
+                <option value="Animal">
+                <option value="Movie">
+                <option value="Political">
+                <option value="Celebrity">
+            </datalist>
+        </div>
+    </div>
+    <div class="main-container container">
+        <div class="gallery-container">
+        </div>
+    </div>
+
+    <div class="canvas-container container">
+        <canvas class="meme-canvas"></canvas>
+        <div class="control-box">
+            <input type="text" class="input-txt" value="" onkeyup="onChangeTxt(value)" title="change text">
+            <div class="btn-container1">
+                <button class="btn-arrow btn">
+                    <img src="icon/arrow.png" /><img src="icon/arrow1.png" />
+                </button>
+                <button class="btn-add btn">
+                    <img src="icon/add.png" />
+                </button>
+                <button class="btn-delete btn">
+                    <img src="icon/delete.png" />
+                </button>
+            </div>
+            <div class="btn-container2">
+                <button class="btn-font-size btn" onclick="onChangeSize(1)">
+                    <img src="icon/A+.png" />
+                </button>
+                <button class="btn-font-size btn" onclick="onChangeSize(-1)">
+                    <img src="icon/A-.png" />
+                </button>
+                <button class="btn-control btn">
+                    <img src="icon/rtl.png" />
+                </button>
+                <button class="btn-control btn">
+                    <img src="icon/center.png" />
+                </button>
+                <button class="btn-control btn">
+                    <img src="icon/ltr.png" />
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/service.js"></script>
+    <script src="js/editor-controller.js"></script>
+    <script src="js/main-controller.js"></script>
+</body>
+
+</html>
