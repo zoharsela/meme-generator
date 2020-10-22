@@ -4,16 +4,12 @@ var gCanvas;
 var gCtx;
 var gCurrPosX;
 var gCurrPosy;
-var gFocusTxt = true;
-var gIsFocus = false;
 
 
 
 function renderCanvas(){
     gCanvas = document.querySelector('.meme-canvas');
     gCtx = gCanvas.getContext('2d');
-    if(!gIsFocus) drawFocusRect();
-    else gIsFocus = false;
     canvasImg();
     renderTxt();
 }
@@ -22,6 +18,11 @@ function canvasImg(){
     let imgId = getSelectedImg();
     let elImg = document.querySelector(`#img-num-${imgId}`);
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+function onMoveLine(num){
+    moveLine(num);
+    renderCanvas();
 }
 
 function onChangeTxt(txt){
@@ -39,10 +40,9 @@ function renderTxt(){
 }
 
 function drawTxt(line){
-    gCtx.setLineDash([]);
     gCtx.lineWidth = '1';
-    gCtx.strokeStyle = line.outlineColor;
     gCtx.fillStyle = line.fillColor;
+    gCtx.strokeStyle = line.outlineColor;
     gCtx.font = `${line.size}px ${line.font}`; 
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.positionX, line.positionY);
@@ -94,21 +94,6 @@ function downloadCanvas(elLink) {
     const data = gCanvas.toDataURL()
     elLink.href = data
     elLink.download = 'meme.jpg'
-}
-
-function drawFocusRect(){
-    var meme = getMeme();
-    if(gFocusTxt){
-        if(meme.lines.length === 0) return;
-        var line = meme.lines[meme.selectedLineIdx];
-        var posX = line.positionX;
-        var posY = line.positionY;
-        gCtx.beginPath();
-        gCtx.rect(posX - 80, posY - 70, 300, 50);
-        gCtx.setLineDash([4, 4]);
-        gCtx.strokeStyle = 'black';
-        gCtx.stroke();
-    }
 }
 
 

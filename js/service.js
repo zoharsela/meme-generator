@@ -42,7 +42,6 @@ var gMeme = {
 }
 
 function updateMemeImg(imgId) {
-
     gMeme.selectedImgId = imgId;
 }
 
@@ -65,13 +64,17 @@ function editMeme(key, value) {
     gMeme.lines[lineIdx][key] = value;
 }
 
+function moveLine(value){
+    if (gMeme.lines.length === 0) return;
+    let lineIdx = gMeme.selectedLineIdx;
+    gMeme.lines[lineIdx].positionY += value;
+}
+
 function changeSize(fontSize) {
-    if (gFocusTxt) {
         if (gMeme.lines.length === 0) return;
         let lineIdx = gMeme.selectedLineIdx;
         gMeme.lines[lineIdx].size += fontSize;
         console.log(gMeme.lines[lineIdx].size);
-    }
 }
 
 function switchLines(){
@@ -101,3 +104,5 @@ function deleteLine(){
     gMeme.selectedLineIdx = 0;
     gMeme.lines.splice(lineIdx, 1);
 }
+
+
