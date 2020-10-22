@@ -75,37 +75,12 @@ li{
 }
 
 
-.search-container{
-    display: grid;
-    width: 541px;
-    height: 58px;
-    border-radius: 29px;
-    background-color:#22252c;
-}
-
 select.font-select{
     width: 76px;
     height: 39px;
     font-size: 16px;
 }
 
-.search-by-typing input{
-    padding: 5px;
-    margin: 10px;
-    width: 324px;
-    height: 36px;
-    opacity: 0.38;
-    color: #fefefe;
-    font-family: Poppins;
-    font-size: 21px;
-    font-weight: 300;
-    font-style: normal;
-    letter-spacing: normal;
-    line-height: normal;
-    text-align: left;
-    background-color: #22252c;
-    border-radius: none;
-}
 
 .gallery-container{
     display: grid;
