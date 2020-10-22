@@ -74,15 +74,6 @@ li{
     margin: 10px;
 }
 
-
-select.font-select{
-    width: 76px;
-    height: 39px;
-    font-size: 16px;
-    font-weight: bolder;
-}
-
-
 .gallery-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, 250px);
@@ -128,9 +119,7 @@ select.font-select{
     width: 400px;
     height: 400px;
     display: grid;
-    /* grid-template-columns: repeat(2, 96px); */
     grid-gap: 10px;
-    /* justify-content: center; */
     align-items: center;
     padding: 0 20px;
     box-shadow: 1px 5px 0 #696969, inset 0 5px 0 #ffffff;
@@ -160,6 +149,29 @@ select.font-select{
     box-shadow: 1px 5px 0 #bbc4d1, inset 0 5px 0 #ffffff;
     border-radius: 28px;
     background-color: #ebeef3;
+}
+
+.btn-container3 > {
+    cursor: pointer;
+    margin-top: 5px;
+    width: 76px;
+    height: 39px;
+    margin-top: 5px;
+}
+
+select.font-select{
+    
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.label-color-select{
+    margin-left: 10px;
+}
+
+#color-select{
+   display: none;
+   align-items: center;
 }
 
 .download{

@@ -2,9 +2,6 @@
 
 var gCanvas;
 var gCtx;
-var gCurrPosX;
-var gCurrPosy;
-
 
 
 function renderCanvas(){
@@ -57,7 +54,6 @@ function onChangeSize(num){
 function onSwitchLines(){
     switchLines();
     renderCanvas();
-
 }
 
 function onChangeAlign(align){
@@ -91,9 +87,9 @@ function onDeleteLine(){
 }
 
 function downloadCanvas(elLink) {
-    const data = gCanvas.toDataURL()
-    elLink.href = data
-    elLink.download = 'meme.jpg'
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
+    elLink.download = 'meme.jpg';
 }
 
 

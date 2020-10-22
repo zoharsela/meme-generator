@@ -21,7 +21,7 @@
             <img class="nav-img" src="icon/hamburger.png" alt="">
         </button>
     </nav>
-  
+
     <div class="main-container container">
         <div class="gallery-container">
         </div>
@@ -64,24 +64,23 @@
                 <button class="btn-align btn" onclick="onChangeAlign('left')">
                     <img src="icon/rtl.png" />
                 </button>
-                <select class="font-select" onchange="onChangeFont(value)">
-                    <option>Impact</option>
-                    <option>Eurof</option>
-                    <option>Poppins</option>
-                    <option>Lato</option>
-                </select>
-                <button class="btn">
-                    <label for="color-select">
-                    <input type="color" class="color-select" onchange="onChangeOutlineColor(value)">
-                    <img src="icon/stroke.png" />
-                </label>
-                </button>
-                <button class="btn">
-                    <label for="color-select">
-                    <input type="color" class="color-select" onchange="onChangeFillColor(value)">
-                    <img src="icon/color.png" />
-                </label>
-                </button>
+            </div>
+                <div class="btn-container3 grid">
+                    <select class="font-select" onchange="onChangeFont(value)">
+                        <option>Impact</option>
+                        <option>Eurof</option>
+                        <option>Poppins</option>
+                        <option>Lato</option>
+                    </select>
+                    <label for="color-select" class="label-color-select">
+                        <input type="color" id="color-select" onchange="onChangeOutlineColor(value)">
+                        <img src="icon/stroke.png" />
+                    </label>
+                    <label for="color-select" class="label-color-select">
+                        <input type="color" id="color-select" onchange="onChangeFillColor(value)">
+                        <img src="icon/color.png" />
+                    </label>
+                
             </div>
 
             <a class="download" href="#" onclick="downloadCanvas(this)">
