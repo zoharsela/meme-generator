@@ -65,34 +65,40 @@
                     <img src="icon/rtl.png" />
                 </button>
             </div>
-                <div class="btn-container3 grid">
-                    <select class="font-select" onchange="onChangeFont(value)">
-                        <option>Impact</option>
-                        <option>Eurof</option>
-                        <option>Poppins</option>
-                        <option>Lato</option>
-                    </select>
-                    <label for="color-select" class="label-color-select">
-                        <input type="color" id="color-select" onchange="onChangeOutlineColor(value)">
-                        <img src="icon/stroke.png" />
-                    </label>
-                    <label for="color-select" class="label-color-select">
-                        <input type="color" id="color-select" onchange="onChangeFillColor(value)">
-                        <img src="icon/color.png" />
-                    </label>
-                
-            </div>
+            <div class="btn-container3 grid">
+                <select class="font-select" onchange="onChangeFont(value)">
+                    <option>Impact</option>
+                    <option>Eurof</option>
+                    <option>Poppins</option>
+                    <option>Lato</option>
+                </select>
+                <label for="color-select" class="label-color-select">
+                    <input type="color" id="color-select" onchange="onChangeOutlineColor(value)">
+                    <img src="icon/stroke.png" />
+                </label>
+                <label for="color-select" class="label-color-select">
+                    <input type="color" id="color-select" onchange="onChangeFillColor(value, event)">
+                    <img src="icon/color.png" />
+                </label>
 
-            <a class="download" href="#" onclick="downloadCanvas(this)">
-                <img src="icon/downloadsign.png">
-                <img src="icon/download.png">
-            </a>
+            </div>
+            <div class="remote-canvas grid">
+                <a class="download grid" href="#" onclick="downloadCanvas(this)">
+                    <img src="icon/downloadsign.png" class="download-img">
+                    <img src="icon/download.png">
+                    <!-- <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" /> -->
+                </a>
+                <form class="share grid btn" href="#" action="" method="POST" enctype="multipart/form-data"
+                    onclick="shareCanvas(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <div class="share-container">
+                        <img src="icon/sharesign.png" class="share-container-img">
+                        <img src="icon/Share.png">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-
-
-
-
     <script src="js/service.js"></script>
     <script src="js/editor-controller.js"></script>
     <script src="js/main-controller.js"></script>

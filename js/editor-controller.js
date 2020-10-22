@@ -40,7 +40,7 @@ function drawTxt(line){
     gCtx.lineWidth = '1';
     gCtx.fillStyle = line.fillColor;
     gCtx.strokeStyle = line.outlineColor;
-    gCtx.font = `${line.size}px ${line.font}`; 
+    gCtx.font = `italic ${line.size}px ${line.font}`; 
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.positionX, line.positionY);
     gCtx.strokeText(line.txt, line.positionX, line.positionY);
@@ -91,6 +91,39 @@ function downloadCanvas(elLink) {
     elLink.href = data;
     elLink.download = 'meme.jpg';
 }
+
+function shareCanvas(elForm, ev){
+    ev.preventDefault();
+    document.getElementById('imgData').value = gCanvas.toDataURL("image/jpeg");
+    function onSuccess(uploadedImgUrl) {
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        document.querySelector('.share-container').innerHTML = `
+        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+           Share   
+        </a>`
+    }
+    doUploadImg(elForm, onSuccess);
+}
+
+function doUploadImg(elForm, onSuccess) {
+    
+    var formData = new FormData(elForm);
+    fetch('http://ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(function (res) {
+        return res.text()
+    })
+    .then(onSuccess)
+    
+    .catch(function (err) {
+        console.log(err);
+        console.error(err)
+    })
+}
+
+
 
 
 
