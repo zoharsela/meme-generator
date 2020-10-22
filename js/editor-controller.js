@@ -4,84 +4,84 @@ var gCanvas;
 var gCtx;
 
 
-function renderCanvas(){
-    gCanvas = document.querySelector('.meme-canvas');
+function renderCanvas() {
+    gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
     canvasImg();
     renderTxt();
 }
 
-function canvasImg(){
-    let imgId = getSelectedImg();
+function canvasImg() {
+    var imgId = getSelectedImg();
     let elImg = document.querySelector(`#img-num-${imgId}`);
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 }
 
-function onMoveLine(num){
+function onMoveLine(num) {
     moveLine(num);
     renderCanvas();
 }
 
-function onChangeTxt(txt){
+function onChangeTxt(txt) {
     editMeme('txt', txt);
     renderCanvas();
 }
 
-function renderTxt(){
+function renderTxt() {
     let meme = getMeme();
     let lines = meme.lines;
-    if(lines.length === 0) return;
+    if (lines.length === 0) return;
     lines.forEach(line => drawTxt(line))
     let selectedLine = meme.lines[meme.selectedLineIdx];
     document.querySelector('.input-txt').value = selectedLine.txt;
 }
 
-function drawTxt(line){
+function drawTxt(line) {
     gCtx.lineWidth = '1';
     gCtx.fillStyle = line.fillColor;
     gCtx.strokeStyle = line.outlineColor;
-    gCtx.font = `italic ${line.size}px ${line.font}`; 
+    gCtx.font = `${line.size}px ${line.font}`;
     gCtx.textAlign = line.align;
     gCtx.fillText(line.txt, line.positionX, line.positionY);
     gCtx.strokeText(line.txt, line.positionX, line.positionY);
 }
 
-function onChangeSize(num){
+function onChangeSize(num) {
     changeSize(num);
     renderCanvas();
 }
 
-function onSwitchLines(){
+function onSwitchLines() {
     switchLines();
     renderCanvas();
 }
 
-function onChangeAlign(align){
+function onChangeAlign(align) {
     editMeme('align', align);
     renderCanvas();
 }
 
-function onChangeOutlineColor(value){
+function onChangeOutlineColor(value) {
     editMeme('outlineColor', value);
     renderCanvas();
 }
 
-function onChangeFillColor(value){
+function onChangeFillColor(value) {
     editMeme('fillColor', value);
     renderCanvas();
 }
 
-function onChangeFont(font){
+function onChangeFont(font) {
     editMeme('font', font);
     renderCanvas();
 }
 
-function onAddLine(){
+function onAddLine() {
     addLine();
     renderCanvas();
 }
 
-function onDeleteLine(){
+function onDeleteLine() {
     deleteLine();
     renderCanvas();
 }
@@ -92,7 +92,7 @@ function downloadCanvas(elLink) {
     elLink.download = 'meme.jpg';
 }
 
-function shareCanvas(elForm, ev){
+function shareCanvas(elForm, ev) {
     ev.preventDefault();
     document.getElementById('imgData').value = gCanvas.toDataURL("image/jpeg");
     function onSuccess(uploadedImgUrl) {
@@ -106,21 +106,21 @@ function shareCanvas(elForm, ev){
 }
 
 function doUploadImg(elForm, onSuccess) {
-    
+
     var formData = new FormData(elForm);
     fetch('http://ca-upload.com/here/upload.php', {
         method: 'POST',
         body: formData
     })
-    .then(function (res) {
-        return res.text()
-    })
-    .then(onSuccess)
-    
-    .catch(function (err) {
-        console.log(err);
-        console.error(err)
-    })
+        .then(function (res) {
+            return res.text()
+        })
+        .then(onSuccess)
+
+        .catch(function (err) {
+            console.log(err);
+            console.error(err)
+        })
 }
 
 

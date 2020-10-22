@@ -28,7 +28,7 @@
     </div>
 
     <div class="canvas-container container">
-        <canvas class="meme-canvas"></canvas>
+        <canvas id="meme-canvas"></canvas>
         <div class="control-box">
             <input type="text" class="input-txt" value="" onkeyup="onChangeTxt(value)" title="change text">
             <div class="btn-container1">
@@ -72,12 +72,12 @@
                     <option>Poppins</option>
                     <option>Lato</option>
                 </select>
-                <label for="color-select" class="label-color-select">
+                <label for="color-select" class="label-color-select btn">
                     <input type="color" id="color-select" onchange="onChangeOutlineColor(value)">
                     <img src="icon/stroke.png" />
                 </label>
-                <label for="color-select" class="label-color-select">
-                    <input type="color" id="color-select" onchange="onChangeFillColor(value, event)">
+                <label for="color-select1" class="label-color-select1 btn">
+                    <input type="color" id="color-select1" onchange="onChangeFillColor(value)">
                     <img src="icon/color.png" />
                 </label>
 

@@ -120,7 +120,7 @@ li.nav-gallery.btn {
     height: 400px;
 }
 
-.meme-canvas{
+#meme-canvas{
     border: 1px solid black;
     box-shadow: 1px 5px 0 #696969, inset 0 5px 0 #ffffff;
     border-radius: 30px; 
@@ -130,7 +130,6 @@ li.nav-gallery.btn {
     width: 400px;
     height: 400px;
     display: grid;
-    /* grid-gap: 10px; */
     align-items: center;
     padding: 0 20px;
     box-shadow: 1px 5px 0 #696969, inset 0 5px 0 #ffffff;
@@ -140,6 +139,16 @@ li.nav-gallery.btn {
     justify-content: space-evenly;
 }
 
+.btn-container1{
+    background-color: #19a59f;
+    border-radius: 15px;
+}
+
+.btn-container2{
+    background-color: #19a59f;
+    border-radius: 15px;
+}
+
 .btn-delete img {
     height: 31px;
 }
@@ -147,7 +156,6 @@ li.nav-gallery.btn {
 .btn-font-size img {
     height: 26px;
 }
-
 
 .btn-arrow{
     background-color: #ebeef3;
@@ -190,6 +198,14 @@ select.font-select{
 }
 
 #color-select{
+   display: none;
+   align-items: center;
+}
+.label-color-select1{
+    margin-left: 20px;
+}
+
+#color-select1{
    display: none;
    align-items: center;
 }
@@ -248,7 +264,7 @@ form.share.grid.btn img{
 }
 
 .share-container-img{
-    margin-right: 10px;
+    margin-right: 17px;
 }
 
 @media (max-width: 900px){
