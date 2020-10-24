@@ -24,10 +24,10 @@ function toggleNav() {
     document.body.classList.toggle('menu-open');
     let img = document.querySelector('.nav-img').src;
          if (img.indexOf('hamburger.png')!=-1) {
-             document.querySelector('.nav-img').src  = '../icon/x.png';
+             document.querySelector('.nav-img').src  = 'icon/x.png';
          }
           else {
-            document.querySelector('.nav-img').src = '../icon/hamburger.png';
+            document.querySelector('.nav-img').src = 'icon/hamburger.png';
         }
  
  }
