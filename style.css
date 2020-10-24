@@ -124,6 +124,7 @@ li.nav-gallery.btn {
     border: 1px solid black;
     box-shadow: 1px 5px 0 #696969, inset 0 5px 0 #ffffff;
     border-radius: 30px; 
+    cursor: text;
 }
 
 .control-box {
@@ -267,7 +268,7 @@ form.share.grid.btn img{
     margin-right: 17px;
 }
 
-@media (max-width: 900px){
+@media (max-width: 800px){
 
     .nav{
         display: none;

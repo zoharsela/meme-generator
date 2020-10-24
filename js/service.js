@@ -74,26 +74,26 @@ function changeSize(fontSize) {
         if (gMeme.lines.length === 0) return;
         let lineIdx = gMeme.selectedLineIdx;
         gMeme.lines[lineIdx].size += fontSize;
-        console.log(gMeme.lines[lineIdx].size);
 }
 
 function switchLines(){
     if(gMeme.lines.length === 0) return;
+    let lineIdx = gMeme.selectedLineIdx;
     if(gMeme.selectedLineIdx === gMeme.lines.length - 1) gMeme.selectedLineIdx = 0;
     else gMeme.selectedLineIdx++;
 }
 
-function addLine(){
-var line = {
-    txt: 'can’t get fired',
-    size: 20,
-    align: 'center',
-    font: 'Impact',
-    outLineColor: 'black',
-    fillColor: 'white',
-    positionX: 150,
-    positionY: 80
-}
+function addLine(positionX, positionY){
+    var line = {
+        txt: 'can’t get fired',
+        size: 20,
+        align: 'center',
+        font: 'Impact',
+        outLineColor: 'black',
+        fillColor: 'white',
+        positionX: 150,
+        positionY: 80
+    }
     gMeme.lines.push(line);
     gMeme.selectedLineIdx = gMeme.lines.length - 1;
 }

@@ -2,19 +2,24 @@
 
 var gCanvas;
 var gCtx;
-
+var gFrame = false;
 
 function renderCanvas() {
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
     canvasImg();
-    renderTxt();
+    if(!gFrame) drawFrameRect()
+    else gFrame = false;
 }
 
 function canvasImg() {
     var imgId = getSelectedImg();
-    let elImg = document.querySelector(`#img-num-${imgId}`);
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+    var img = new Image();
+    img.src = `img/${imgId}.jpg`;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+        renderTxt();
+              };
 }
 
 function onMoveLine(num) {
@@ -37,14 +42,28 @@ function renderTxt() {
 }
 
 function drawTxt(line) {
-    gCtx.lineWidth = '1';
-    gCtx.fillStyle = line.fillColor;
-    gCtx.strokeStyle = line.outlineColor;
+    gCtx.lineWidth = '2';
     gCtx.font = `${line.size}px ${line.font}`;
     gCtx.textAlign = line.align;
+    gCtx.fillStyle = line.fillColor;
     gCtx.fillText(line.txt, line.positionX, line.positionY);
+    gCtx.strokeStyle = line.outlineColor;
+    gCtx.stroke();
     gCtx.strokeText(line.txt, line.positionX, line.positionY);
 }
+
+function drawFrameRect(){
+    var meme = getMeme();
+    if(meme.lines.length === 0) return;
+    var line = meme.lines[meme.selectedLineIdx];
+    var posX = line.positionX;
+    var posY = line.positionY;
+    gCtx.beginPath();
+    gCtx.rect(posX - 120, posY - 17, 250, 30);
+    gCtx.strokeStyle = 'black';
+    gCtx.stroke();
+}
+
 
 function onChangeSize(num) {
     changeSize(num);
@@ -118,10 +137,13 @@ function doUploadImg(elForm, onSuccess) {
         .then(onSuccess)
 
         .catch(function (err) {
-            console.log(err);
             console.error(err)
         })
 }
+
+
+
+
 
 
 
