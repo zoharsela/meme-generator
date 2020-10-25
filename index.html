@@ -28,7 +28,7 @@
     </div>
 
     <div class="canvas-container container">
-        <canvas id="meme-canvas"></canvas>
+        <canvas id="meme-canvas" width="400px" height="400px"></canvas>
         <div class="control-box">
             <input type="text" class="input-txt" value="" onkeyup="onChangeTxt(value)" title="change text">
             <div class="btn-container1">
@@ -86,7 +86,6 @@
                 <a class="download grid" href="#" onclick="downloadCanvas(this)">
                     <img src="icon/downloadsign.png" class="download-img">
                     <img src="icon/download.png">
-                    <!-- <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" /> -->
                 </a>
                 <form class="share grid btn" href="#" action="" method="POST" enctype="multipart/form-data"
                     onclick="shareCanvas(this, event)">
@@ -99,6 +98,11 @@
             </div>
         </div>
     </div>
+    <footer>
+        <div class="footer">
+        <small>Zohar Sela &copy;</small>
+    </div>
+    </footer>
     <script src="js/service.js"></script>
     <script src="js/editor-controller.js"></script>
     <script src="js/main-controller.js"></script>

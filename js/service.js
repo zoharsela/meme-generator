@@ -11,7 +11,9 @@ var gImgs = [
     { id: 7, url: 'img/7.jpg', keywords: ['Funny', 'Celebrity'] },
     { id: 8, url: 'img/8.jpg', keywords: ['Movie', 'Celebrity'] },
     { id: 9, url: 'img/9.jpg', keywords: ['Funny'] },
-    { id: 10, url: 'img/10.jpg',keywords:['Political', 'Celebrity']}
+    { id: 10, url: 'img/10.jpg',keywords:['Political', 'Celebrity']},
+    { id: 11, url: 'img/11.jpg', keywords: ['Funny'] },
+    { id: 12, url: 'img/12.jpg',keywords:['Political', 'Celebrity']}
 ];
 
 var gMeme = {
@@ -25,8 +27,8 @@ var gMeme = {
             font: 'Impact',
             outLineColor: 'black',
             fillColor: 'white',
-            positionX: 150,
-            positionY: 17
+            positionX: 200,
+            positionY: 20
         },
         {
             txt: 'if you dont have a job',
@@ -35,8 +37,8 @@ var gMeme = {
             font: 'Impact',
             outLineColor: 'black',
             fillColor: 'white',
-            positionX: 150,
-            positionY: 145
+            positionX: 200,
+            positionY: 380
         },
     ]
 }
@@ -91,8 +93,8 @@ function addLine(positionX, positionY){
         font: 'Impact',
         outLineColor: 'black',
         fillColor: 'white',
-        positionX: 150,
-        positionY: 80
+        positionX: 200,
+        positionY: 150
     }
     gMeme.lines.push(line);
     gMeme.selectedLineIdx = gMeme.lines.length - 1;

@@ -23,7 +23,7 @@ box-sizing: border-box;
 body{
     font-family: Eurof;
     margin: 0;
-    background-color:#ffffff;
+    background-color:#979393;
 }
 
 ul{
@@ -78,9 +78,9 @@ li{
 .gallery-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, 250px);
+    justify-content: center;
     grid-gap: 10px;
     padding: 40px 0;
-
 }
 
 .gallery-container img{
@@ -102,6 +102,14 @@ li.nav-gallery.btn {
     text-align: center;
 }
 
+.nav-memes {
+    cursor: no-drop;
+}
+
+.nav-about {
+    cursor: no-drop;
+}
+
 .canvas-container{
     display: none;
     width: 100%;
@@ -113,12 +121,13 @@ li.nav-gallery.btn {
     background-image: url('icon/Forme_1.png');
     background-size: 700px  500px;
     background-repeat: no-repeat;
+    background-color: white;
 }
 
-.canvas-container>* {
+/* .canvas-container>* {
     width: 400px;
     height: 400px;
-}
+} */
 
 #meme-canvas{
     border: 1px solid black;
@@ -266,6 +275,11 @@ form.share.grid.btn img{
 
 .share-container-img{
     margin-right: 17px;
+}
+
+.footer{
+    background-color: #5970c1;
+    background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
 }
 
 @media (max-width: 800px){

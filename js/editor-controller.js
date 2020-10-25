@@ -8,7 +8,7 @@ function renderCanvas() {
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
     canvasImg();
-    if(!gFrame) drawFrameRect()
+    if (!gFrame) drawFrameRect()
     else gFrame = false;
 }
 
@@ -19,7 +19,7 @@ function canvasImg() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         renderTxt();
-              };
+    };
 }
 
 function onMoveLine(num) {
@@ -52,9 +52,9 @@ function drawTxt(line) {
     gCtx.strokeText(line.txt, line.positionX, line.positionY);
 }
 
-function drawFrameRect(){
+function drawFrameRect() {
     var meme = getMeme();
-    if(meme.lines.length === 0) return;
+    if (meme.lines.length === 0) return;
     var line = meme.lines[meme.selectedLineIdx];
     var posX = line.positionX;
     var posY = line.positionY;
